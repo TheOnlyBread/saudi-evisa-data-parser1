@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Upload</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+      }
+
+      .bdar-text {
+        font-size: 48px;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+        color: #555;
+      }
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        color: #555;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      label {
+        background-color: #e7466e;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      label:hover {
+        background-color: #d43c5a;
+      }
+
+      .file-input-text {
+        font-size: 16px;
+        margin-left: 10px;
+      }
+
+      input[type="submit"] {
+        background-color: #ef87a1;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #e67293;
+      }
+
+      .file-count {
+        font-size: 14px;
+        color: #555;
+        margin-top: 10px;
+      }
+
+      .generate-button {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bdar-text">
+      Badr's Very professional Sheet creator that doesn't go offline every day
+    </div>
+    <div class="container">
+      <h1>Upload Files</h1>
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <input
+          type="file"
+          name="files[]"
+          id="file"
+          multiple
+          accept=".txt, .pdf, .docx"
+        />
+        <label for="file"
+          ><span class="file-input-text">Choose Files</span></label
+        >
+        <input type="submit" value="Upload" />
+      </form>
+      <p class="file-count" id="file-count"></p>
+      <a href="/process" class="generate-button">Generate Excel File</a>
+    </div>
+  </body>
+</html>
